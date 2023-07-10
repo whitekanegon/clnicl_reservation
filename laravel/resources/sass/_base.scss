@@ -1,0 +1,68 @@
+@import "include";
+
+/* ------------------------------------
+// base
+------------------------------------ */
+
+html {
+	font-size:62.5%; //sets the base font to 10px for easier math
+}
+
+body {
+	background: $bgcolor;
+	color: $font_color_base;
+	font-family: $font_family_base;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 1.4;
+	margin: 0;
+}
+
+
+a {
+	&:link {
+		color: $link_color_base;
+		text-decoration:none;
+	}
+	&:visited {
+		color: $link_color_base;
+		text-decoration:none;
+	}
+	&:hover {
+		color: $link_color_hover_base;
+		text-decoration:none;
+	}
+	&:active {
+		color: $link_color_base;
+		text-decoration:none;
+	}
+}
+
+a {
+	img {
+		transition: .3s;
+		&:hover {
+			opacity: .8;
+		}
+	}
+}
+
+img {
+	vertical-align: bottom;
+	max-width: 100%;
+ height: auto;
+}
+
+.md,
+.sp {
+	display: none;
+}
+
+@include media(sp){
+	.pc {
+		display: none;
+	}
+	.sp {
+		display: inherit;
+	}
+}

@@ -1,0 +1,1028 @@
+@charset "utf-8";
+
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP);
+
+@import "reset.local";
+@import "base";
+
+/* ------------------------------------
+// ktyHeader
+------------------------------------ */
+
+body {
+  //background: url(/common/images/head/head_back.jpg) top center repeat-x;
+}
+
+#ktyHeader {
+  margin-bottom: 25px;
+
+  .siteHeader {
+    margin-bottom: 25px;
+      .logo {
+        max-width: 980px;
+        padding: 26px 0 20px;
+        margin: 0 auto;
+        p {
+          font-family:"ＭＳ ゴシック", "MS Gothic", "Osaka－等幅", Osaka-mono, monospace;
+          font-size: 12px;
+          color: #999;
+          margin-bottom: 10px;
+        }
+      }
+  }
+
+
+  @include media(sp) {
+    margin-bottom: 25px;
+    .siteHeader {
+      text-align: center;
+        .logo {
+          display: inline-block;
+          text-align: center;
+          padding: 15px 0 0;
+        }
+    }
+  }
+}
+
+#ktyContentHeader {
+  max-width: 980px;
+  margin: 0 auto 50px;
+  h1 {
+    margin-bottom: 15px;
+    background: #3b2321;
+    border-radius: 5px;
+    padding: 8px 0;
+    font-size: 2.4rem;
+    text-align: center;
+    color: #fff;
+  }
+  .toujitsu {
+    border: solid 1px #c6ae62;
+    background: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #222222;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  .notice {
+    background: #fbfaf0;
+    border: solid 1px #c6ae62;
+    padding: 20px 15px;
+    font-size: 1.8rem;
+    color: #222222;
+    line-height: 1.5;
+    white-space: pre-line;
+  }
+  .loading {
+    text-align: center;
+    padding: 20px 0;
+    i {
+      color: #cccccc;
+    }
+  }
+  .txt-underline {
+    text-decoration: underline;
+  }
+  .txt-redStrong {
+    color: #cc0000;
+    font-weight: bold;
+  }
+  @include media(sp) {
+    padding: 0 13px;
+    h1 {
+      font-size: 2rem;
+    }
+    .toujitsu {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .notice {
+      padding: 10px 15px;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+
+
+/* ------------------------------------
+// ktyContainer
+------------------------------------ */
+
+#ktyContainer {
+  margin: 0 auto;
+  max-width: 980px;
+  display: flex;
+  justify-content: space-between;
+
+  .loading {
+    i {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -30px 0 0 -24px;
+      z-index: 10000;
+      color: #cccccc;
+    }
+
+  }
+
+  .v-fade {
+    display: block !important;
+    /* override v-show display: none */
+    transition: opacity 0.5s;
+    height: auto;
+  }
+
+  .v-fade[style*="display: none;"] {
+    opacity: 0;
+    pointer-events: none;
+    /* disable user interaction */
+    user-select: none;
+    /* disable user selection */
+    height: 0;
+  }
+
+  .ktyCompleteMsg {
+    white-space: pre-line;
+  }
+
+  .ktyCompleteNotice {
+    white-space: pre-line;
+    color: #ff0000;
+    padding: 20px;
+    background: #fbfaf0;
+    margin: 20px 0;
+    border: solid 1px #ff0000;
+    border-radius: 10px;
+  }
+
+  &.ktyComplete {
+    display: block;
+
+    #ktyContents {
+      width: auto;
+      text-align: center;
+    }
+  }
+
+  @include media(sp) {
+    display: block;
+    &.dispAllSP {
+      position: relative;
+      padding-bottom: 420px;
+    }
+
+    .ktyCompleteNotice {
+      white-space: normal;
+    }
+
+
+  }
+}
+
+/* ------------------------------------
+// ktyContents
+------------------------------------ */
+
+#ktyContents {
+  width: 640px;
+
+  section {
+    margin: 60px 0;
+    position: relative;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  .txt-center {
+    text-align: center;
+  }
+
+  .txt-right {
+    text-align: right;
+  }
+
+  .has-error {
+    background: #FBEEF4 !important;
+  }
+
+  .has-error-message {
+    color: #ff0000;
+    font-size: 1.4rem;
+    margin-top: 10px;
+  }
+
+  .has-error-text {
+    color: #ff0000;
+  }
+
+  .ktyExplain {
+    color: #666;
+    font-size: 1.4rem;
+    margin-top: 10px;
+  }
+
+
+  .ktyHeading01 {
+    font-size: 2.4rem;
+    color: #046e85;
+    margin: 0 0 25px;
+    padding-top: 20px;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: #046e85;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .ktyBox01 {
+    background: #f6f6f6;
+    padding: 15px 15px 10px;
+    position: relative;
+
+    .ktyHeading {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    .ktyNotice {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+  }
+
+
+  .ktyBtnNext {
+    text-align: center;
+    margin: 20px 0;
+
+    a {
+      display: inline-block;
+      border: solid 2px #046e85;
+      border-radius: 35px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #046e85;
+      min-width: 280px;
+      padding: 20px 0;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  @include media(sp) {
+    width: auto;
+    margin: 0 13px;
+
+    section {
+      margin: 20px 0;
+    }
+
+    .ktyHeading01 {
+      font-size: 2.0rem;
+      color: #046e85;
+      margin: 0 0 15px 0;
+      padding: 15px 15px 0 0;
+      position: relative;
+    }
+
+    .ktyBox01 {
+      background: #f6f6f6;
+      padding: 15px 15px 10px;
+      margin: 0 -13px;
+
+      .ktyHeading {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+      }
+
+      .ktyNotice {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+    }
+
+
+    .ktyBtnNext,
+    .ktyBtnSubmit {
+      margin: 15px 0;
+
+      button {
+        display: block;
+        padding: 10px 0;
+        font-size: 1.6rem;
+        width: 100%;
+      }
+    }
+
+
+  }
+}
+
+
+/* ------------------------------------
+// ktyClinicalItems
+------------------------------------ */
+
+#ktyClinicalItems {
+  .loading {
+    height: 300px;
+  }
+
+  ul.ktyClinicItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+      width: 49%;
+      margin-bottom: 15px;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: #fff;
+        border: solid 1px #cccccc;
+        border-radius: 5px;
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 10px 15px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+
+        &.current {
+          background: #fede5d;
+          border-color: #000000;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  @include media(sp) {
+    ul.ktyClinicItems {
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          font-size: 1.6rem;
+          padding: 8px 0;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.5);
+          }
+
+          &.current {
+            background: #fede5d;
+            border-color: #000000;
+            color: #000000;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+/* ------------------------------------
+// ktyReserveCalendar
+------------------------------------ */
+
+#ktyReserveCalendar {
+  > .loading {
+    height: 150px;
+    &.secondTime {
+      position: absolute;
+      left:0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      background: rgba($color: #fff, $alpha: 0.5);
+    }
+  }
+  .ktyCalendarWrap {
+    margin-bottom: 20px;
+  }
+
+  .vc-container {
+    border: none;
+  }
+
+  .vc-w-full>.vc-grid-container>*:first-child {
+    border: none;
+  }
+
+
+  .vc-header {
+    padding-bottom: 15px;
+
+    .vc-title {
+      font-size: 20px;
+    }
+  }
+
+  .vc-weekday {
+    background: #fbfaf0;
+    color: #313131;
+    font-weight: normal;
+
+  }
+
+  .vc-grid-cell-col-1>.vc-weekday {
+    color: #ff0000;
+  }
+
+  .vc-grid-cell-col-7>.vc-weekday {
+    color: #0042bc;
+  }
+
+  .vc-weeks {
+    border-top: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+    padding: 0;
+  }
+
+  .vc-grid-cell {
+    border-bottom: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+  }
+
+  .in-prev-month,
+  .in-next-month {
+    background: #E6E8EC !important;
+  }
+
+  .weekday-1 {
+    background: #FEEAE9;
+
+    .cell-wrap.dayAllow,
+    .cell-wrap.dayDeny {
+      background: none;
+    }
+  }
+
+  .weekday-7 {
+    background: #EAF4FE;
+
+    .cell-wrap.dayAllow,
+    .cell-wrap.dayDeny {
+      background: none;
+    }
+  }
+
+  .cell-wrap {
+    padding: 5px;
+    min-height: 50px;
+
+    &.dayAllow {
+      cursor: pointer;
+
+      //background: #fbfaf0;
+      .cell-content {
+        color: #046e85;
+        text-decoration: underline;
+      }
+
+      &:hover {
+        background: #FBFBFB;
+      }
+
+      &.current {
+        background: #fede5d;
+      }
+    }
+
+    &.dayHoliday {
+      background: #FEEAE9;
+    }
+
+    &.dayPast {
+      background: #eee;
+      color: #ccc;
+    }
+
+    &.dayDeny {
+      background: #eee;
+      color: #666;
+
+      &.dayHoliday {
+        background: #FEEAE9;
+      }
+    }
+
+    &.dayCurrent {
+      background: #fede5d;
+    }
+
+    .cell-header {
+      text-align: right;
+    }
+
+    .cell-content {
+      text-align: center;
+    }
+  }
+
+  #ktyDaySelect {
+    min-height: 120px;
+  }
+
+  .ktyHanrei {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+
+    li {
+      font-size: 1.3rem;
+      margin-right: 20px;
+
+      span {
+        color: #046e85;
+      }
+    }
+  }
+
+  .alert-danger {
+    color: red;
+  }
+
+  .has-error {
+    border-color: red;
+  }
+
+  ul.ktyReserveTimes {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      margin: 0 15px 15px 0;
+      min-width: 72px;
+
+      a {
+        display: block;
+        background: #fff;
+        border: solid 1px #cccccc;
+        border-radius: 5px;
+        font-size: 1.4rem;
+        text-align: center;
+        padding: 10px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+
+        &.current {
+          background: #fede5d;
+          border-color: #000000;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  @include media(sp) {
+    ul.ktyReserveTimes {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+
+      li {
+        margin: 0 12px 0 0;
+
+      }
+    }
+
+
+  }
+}
+
+
+/* ------------------------------------
+// ktyUserInput
+------------------------------------ */
+
+#ktyUserInput {
+  position: relative;
+  > .loading {
+    &.secondTime {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left:0;
+      bottom: 0;
+      z-index: 100;
+      background: rgba($color: #fff, $alpha: 0.5);
+      i {
+        top: auto;
+        bottom: 20px;
+      }
+    }
+  }
+
+  .ktyLastConfirm {
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+
+  .ktyBtnSubmit {
+    text-align: center;
+    margin: 20px 0;
+
+    button {
+      display: inline-block;
+      border: solid 2px #000;
+      background: #fede5d;
+      border-radius: 35px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      min-width: 280px;
+      padding: 20px 0;
+
+      &:not(.disabled):hover {
+        opacity: 0.8;
+      }
+
+      &.disabled {
+        opacity: .5;
+        border-color: rgb(190, 184, 184);
+        cursor: default;
+      }
+
+    }
+  }
+
+
+  span.ktyHissu {
+    color: #ff0000;
+  }
+
+  .ktyForm {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      width: 30%;
+      vertical-align: top;
+      padding: 20px 20px 20px 10px;
+      box-sizing: border-box;
+      text-align: left;
+      border-bottom: solid 1px #cccccc;
+      font-weight: normal;
+    }
+
+    td {
+      padding: 15px 10px 15px 0;
+      border-bottom: solid 1px #cccccc;
+    }
+
+    tr:last-child {
+
+      td,
+      th {
+        border-bottom: none;
+      }
+    }
+
+    input[type="text"],
+    textarea {
+      border: solid 1px #cccccc;
+      border-radius: 3px;
+      background: #fff;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .ktySelectBox {
+      border: solid 1px #cccccc;
+      border-radius: 3px;
+      background: #fff;
+      position: relative;
+
+      &.inline {
+        display: inline-block;
+      }
+
+      select {
+        padding: 7px 25px 5px 10px;
+        width: 100%;
+        border: none;
+        background: transparent;
+        appearance: none;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:-ms-expand {
+          display: none;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: 8px;
+        top: 15px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 4px 0 4px;
+        border-color: #000000 transparent transparent transparent;
+      }
+    }
+
+    .ktyBirth {
+      display: flex;
+
+      li {
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .ktySelectBox {
+          margin-right: 10px;
+          display: inline-block;
+          vertical-align: middle;
+
+          select {
+            padding: 10px 25px 8px 10px;
+          }
+        }
+      }
+    }
+
+    .ktyRadio {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        margin: 0 20px 5px 0;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      input {
+        display: none;
+
+        &+label {
+          position: relative;
+          padding-left: 25px;
+          cursor: pointer;
+
+          &:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            border: solid 1px #cccccc;
+            position: absolute;
+            top: 3px;
+            left: 0;
+
+          }
+        }
+
+        &:checked+label:after {
+          content: "";
+          width: 8px;
+          height: 8px;
+          background: #069ec3;
+          position: absolute;
+          top: 9px;
+          left: 6px;
+          border-radius: 50%;
+        }
+
+        &[type=checkbox]+label:before {
+          border-radius: 0;
+        }
+
+        &[type=checkbox]:checked+label:after {
+          border-radius: 0;
+        }
+
+      }
+
+      &.ktyCheckbox input {
+        display: none;
+
+        &+label {
+
+          &:before {
+            border-radius: 0;
+          }
+        }
+
+        &:checked+label:after {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+
+  .ktyPrivacy {
+    background: #fff;
+    padding: 10px;
+    height: 150px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    white-space: pre-line;
+    font-size: 1.4rem;
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    &+* ul {
+      justify-content: center;
+    }
+  }
+
+  @include media(sp) {
+    position: static;
+    &.loadingActive {
+      position: relative;
+    }
+    .loading {
+      height: 50px;
+      &.secondTime {
+        i {
+          bottom: 35px;
+        }
+      }
+    }
+
+    table.ktyForm {
+      th {
+        width: auto;
+        display: block;
+        border: none;
+        padding: 0;
+      }
+
+      td {
+        width: auto;
+        display: block;
+        margin: 0 -15px 13px;
+        padding: 13px 15px;
+        border-bottom-style: dotted;
+      }
+
+    }
+
+    #ktySubmit {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0 15px;
+    }
+  }
+}
+
+
+/* ------------------------------------
+// ktySide
+------------------------------------ */
+
+#ktySide {
+  width: 310px;
+
+  .ktyFixedWrap.fixed {
+    width: 310px;
+    position: fixed;
+    top: 20px;
+    overflow-y: auto;
+  }
+
+  .ktyBoxInfo {
+    border: solid 3px #bbbbbb;
+    border-radius: 3px;
+
+    .KtyHeading {
+      font-size: 1.8rem;
+      padding: 8px 10px 12px;
+      background: #f6f6f6;
+    }
+
+    .ktyInputDetails {
+      padding: 13px;
+
+      section {
+
+        h3 {
+          background: #069ec3;
+          color: #fff;
+          font-size: 1.6rem;
+          padding: 10px 15px 12px;
+          margin-bottom: 10px;
+          border-radius: 3px;
+          line-height: 1;
+          position: relative;
+
+          .ktyModify {
+            font-size: 1.3rem;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 7px 10px;
+            background: #f6f6f6;
+            color: #666;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+
+        .detail {
+          margin-bottom: 20px;
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+
+    .ktyFormConfirm {
+      li {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.6rem;
+        border-bottom: solid 1px #cccccc;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+
+        .formName {
+          color: #666;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  @include media(sp) {
+    width: auto;
+    margin-top: 20px;
+
+    .ktyLastConfirm {
+      text-align: center;
+      font-weight: bold;
+      margin: 20px 15px;
+    }
+
+    .ktyFixedWrap {
+      &.fixed {
+        width: auto;
+        position: static;
+        overflow-y: visible;
+      }
+
+      &.hide {
+        display: none;
+      }
+
+    }
+
+    .ktyBoxInfo {
+      border: none;
+      border-radius: 0;
+
+    }
+
+
+  }
+}

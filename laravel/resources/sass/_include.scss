@@ -1,0 +1,68 @@
+//sass include
+
+$bgcolor: #FFFFFF;
+$font_family_base: 'Noto Sans JP', sans-serif;
+$font_color_base: #313131;
+
+$link_color_base: #313131;
+$link_color_hover_base: #313131;
+
+//breakpoint
+$breakpoints: (
+  'md': 'screen and (max-width: 1024px)',
+  'sp': 'screen and (max-width: 767px)',
+) !default;
+
+@mixin media($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+//placeholder
+@mixin placeholder($color,$fontsize) {
+  &::placeholder {
+    color: $color;
+    font-size: $fontsize;
+  }
+
+  // IE
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $fontsize;
+  }
+
+  // Edge
+  &::-ms-input-placeholder {
+    color: $color;
+    font-size: $fontsize;
+  }
+}
+
+
+//flex
+
+$justifycontent_s: (
+  'between': 'space-between;',
+  'start': 'flex-start;',
+) !default;
+$alignitems_s: (
+  'top': 'flex-start;',
+  'middle': 'center;',
+  'bottom': 'flex-end;',
+) !default;
+
+@mixin flexlist ($justifycontent,$alignitems) {
+	display: flex;
+	justify-content: #{map-get($justifycontent_s, $justifycontent)};
+	align-items: #{map-get($alignitems_s, $alignitems)};
+	flex-wrap: wrap;
+}
+
+//text-overflow
+@mixin textoverflow ($linecount){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $linecount;
+  overflow: hidden;
+}
