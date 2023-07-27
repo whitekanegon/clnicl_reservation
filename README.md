@@ -1,6 +1,6 @@
-# Clinicl 汎用予約システム
+# System for General Appointment Form
 
-[System for General Appointment Form](https://www.clinic-web-yoyaku.com/demo/)is built with PHP+Laravel+Vue.js.
+[The system for the general appointment form](https://www.clinic-web-yoyaku.com/demo/) is built with PHP+Laravel+Vue.js.
 
 # Features
 
