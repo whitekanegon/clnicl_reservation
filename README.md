@@ -1,10 +1,10 @@
 # Clinicl 汎用予約システム
 
-[Clinicl 汎用予約システム](https://www.clinic-web-yoyaku.com/demo/)はPHP+Larabel+Vue.jsで作成されています。
+[System for General Appointment Form](https://www.clinic-web-yoyaku.com/demo/)is built with PHP+Laravel+Vue.js.
 
 # Features
 
-動的コンテンツは以下となります。
+Dynamic content includes:
 
 ## Frontend
 
